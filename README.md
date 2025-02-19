@@ -1,44 +1,55 @@
 # Лабораторна робота №6
+
 ## Мета: Робота з анімацією
 
-Дана робота є продовженням попередньої
+Дана робота є продовженням попередньої.
 
-1. Створити у склонованій директорії [React проект](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) з назвою 'traffic-lights-6'
-1. Перенести попередню лабораторну 
-1.  При клікані на колір сфітлофора реалізувати ефект "моргання" (плюсом буде реалізація зміни яскравості кольору, кількості "моргань", тощо)
-    ```js
-    import { motion } from "framer-motion";
-    import { useEffect, useRef, useState } from "react";
+### Завдання:
 
-    export default function App() {
-      const ref = useRef(1);
-      const [isClick, setIsClick] = useState(true);
+1. **Створити у склонованій директорії** [React проект](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) з назвою 'traffic-lights-6'.
+2. **Перенести попередню лабораторну** та додати необхідні зміни.
+3. **При кліканні на колір світлофора реалізувати ефект "моргання"** (плюсом буде реалізація зміни яскравості кольору, кількості "моргань" тощо).
 
-      useEffect(() => {}, [isClick]);
+```js
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
-      return (
-        <motion.div
-          className="box"
-          key={ref.current}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          onClick={() => {
-            ref.current++;
-            setIsClick(!isClick);
-          }}
-        />
-      );
+export default function App() {
+  const ref = useRef(1);
+  const [isClick, setIsClick] = useState(true);
+
+  useEffect(() => {}, [isClick]);
+
+  return (
+    <motion.div
+      className="box"
+      key={ref.current}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
+      onClick={() => {
+        ref.current++;
+        setIsClick(!isClick);
+      }}
+    />
+  );
+}
+```
+
+```css
+.box {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: blue;
     }
-    ```
-    ```css
-    .box {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          background: blue;
-        }
-    ```
-1. Оформити звіт на локальному комп'ютері
-1. Запушити лаборатону в github.classroom
-1. В Google classroom додати посилання на звіт
+```
+
+4. **Оформити звіт на локальному комп'ютері**.
+5. **Запушити лабораторну в GitHub Classroom**.
+6. **В Google Classroom додати посилання на звіт**.
+
+### Додаткове завдання:
+
+Реалізувати анімоване з'явлення світлофорів як для горизонтального, так і для вертикального розташування, використовуючи `motion` з `framer-motion`.
+
